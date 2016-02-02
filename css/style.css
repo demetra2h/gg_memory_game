@@ -1,4 +1,34 @@
-html {
-    background-image: url("...///images/SH_gazebo.jpg");
-    background-size: cover;
+body {
+  background: url("../images/gazebo.jpg") no-repeat;
+  background-size: cover;
+
+}
+header {
+  font-family: monaco;
+  font-size: 60px;
+  text-align: center;
+  color: #7FB3D5;
+  }
+table {
+  border-radius: 10px;
+}
+button {
+  background: #7FB3D5;
+  color:#154360;
+
+}
+
+.board {
+  width: 550px;
+  height: 550px;
+  margin: 0 auto;
+
+  border-spacing: 5px;
+}
+
+.board td {
+  position: relative;
+  border: 5px solid #154360;
+  border-radius: 10px;
+  border-spacing: 20px;
 }
