@@ -31,4 +31,6 @@ button {
   border: 5px solid #154360;
   border-radius: 10px;
   border-spacing: 20px;
+  background-color: #7FB3D5;
+  opacity: 0.65;
 }

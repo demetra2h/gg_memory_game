@@ -10,15 +10,22 @@ function addCard() {
   var card =
   [
   url("../images/emily.jpg");
-  url("..images/jess.jpg");
-  url("..images/lorelai.jpg");
+  url("../images/jess.jpg");
+  url("../images/lorelai.jpg");
   url("../images/richard.jpg");
   url("../images/rory.jpg");
   url("../images/sookie.jpg");
   ]
 }
 
-//start with random math shuffle function
+//need to put the empty cells here
+function OpenCell = [
+  "", "", "", "",
+  "", "", "", "",
+  "", "", "", ""
+  ]
+
+//start with randomizing the array function
 function RandomFunction(MaxValue, MinValue) {
   return Math.round(Math.random() *
     (MaxValue - MinValue) + MinValue);
@@ -29,20 +36,32 @@ function shuffleCards() {
   var allCard = $(source).children();
   var thisCard = $(source + " div:first-child");
   var arrCard = new array();
+
+
 //shuffling of the cards using a for loop allImg.length is the
 //image array written above
-  for (var i = 0; i < allCard.length; i++) {
-    arrCard[i] = $("#" + thisCard.attr("id") +
-      "card").attr("src");
-    thisCard = thisCard.next();
-  }
+//fisher yates shuffle algorithm
+function shuffleArray(array) {
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
+    }
 
-}
 //click action
-
+$("card").each(function(index, card) {
+  console.log( index + "; " + $( this ).text() );
+});
 
 
 //set a time interval for the cards when they are face up
+
+
+
+//if else statement
 
 
 
@@ -51,3 +70,10 @@ function shuffleCards() {
 
 
 //reset button
+
+
+
+//clear board function
+
+
+
