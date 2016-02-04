@@ -62,6 +62,7 @@ button {
   background-image: url("../images/sookie.jpg");
 }
 
-
-
+.board td.opaque {
+  opacity: 1.0;
+}
 

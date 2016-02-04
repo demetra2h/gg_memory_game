@@ -54,6 +54,17 @@ shuffleBoard();
 // click action for the class of the cell, where the
 // cards arae going to show up
 
-$(".card").on("click", function(){
-  console.log('click!'); // just checking if the class is working
+$(".card").on("click", function(evt) {
+  console.log(evt.target); // just checking if the class is working
+
+  var card  = evt.target.id;
+  var index = card.slice(-2);
+  index = parseInt(index);
+  $(evt.target).addClass(board[index].className);
+  $(evt.target).addClass("opaque");
+
+  setTimeout(function() {
+    $(evt.target).removeClass(board[index].className);
+    $(evt.target).removeClass("opaque");
+  }, 500);
 });
