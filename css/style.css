@@ -8,6 +8,7 @@ header {
   font-size: 60px;
   text-align: center;
   color: #7FB3D5;
+  text-shadow: #154360 2px 5px;
   }
 table {
   border-radius: 10px;
@@ -61,7 +62,6 @@ button {
 .sookie {
   background-image: url("../images/sookie.jpg");
 }
-
 .board td.opaque {
   opacity: 1.0;
 }

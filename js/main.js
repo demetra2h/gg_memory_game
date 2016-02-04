@@ -52,7 +52,7 @@ function shuffleBoard() {
 shuffleBoard();
 
 // click action for the class of the cell, where the
-// cards arae going to show up
+// cards are going to show up
 
 $(".card").on("click", function(evt) {
   console.log(evt.target); // just checking if the class is working
@@ -62,9 +62,43 @@ $(".card").on("click", function(evt) {
   index = parseInt(index);
   $(evt.target).addClass(board[index].className);
   $(evt.target).addClass("opaque");
-
+// time that the cards are flipped over and then go back
   setTimeout(function() {
     $(evt.target).removeClass(board[index].className);
     $(evt.target).removeClass("opaque");
   }, 500);
 });
+
+// if the cards match they stay face up
+// if they don't they go back
+var firstClick;
+var firstElement;
+var secondClick = false;
+var secondElement;
+
+function matchedCards() {
+  if (firstClick === secondClick) {
+      return true;
+  }
+  else (firstClick !=== secondClick){
+      return false;
+  };
+
+// clear board function
+function clearBoard() {
+  shuffleBoard(cards);
+  console.log(cards);
+}
+
+// click counter
+counter++;
+$("#clicks").html("" + Clicks);
+
+
+
+
+
+
+
+
+
