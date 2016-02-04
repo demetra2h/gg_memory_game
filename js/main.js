@@ -2,13 +2,12 @@ console.log('js loaded!');
 
 function Card(className) {
   this.className = className;
-  this.turned    = false;
   this.matched   = false; // because it's the start of the game
 }
 
 // the basic construction of the game when it's started
 
-var cardPulled  = 0; // there hasnt been a card, pulled yet
+var pairs       = 0; // there hasnt been a card, pulled yet
 var turnCounter = 0; // starts at zero for a new game
 var clickCount  = 0; // How many times they clicked
 
@@ -65,9 +64,22 @@ shuffleBoard();
 
 
 function matchedCards() {
-  return firstClick === secondClick;
+  if (board[firstClick].className === board[secondClick].className) {
+    board[firstClick].matched  = true;
+    board[secondClick].matched = true;
+    return true;
+  }
 }
 
+function gameWon() {
+  if (pairs === 6) {
+    alert("You Won!");
+    clearBoard();
+    return true;
+  } else {
+    return false;
+  }
+}
 
 // clear board function
 function clearBoard() {
@@ -75,6 +87,7 @@ function clearBoard() {
   console.log(cards);
 }
 
+// clicks
 function assignChoice(index) {
   if (firstClick === null) {
     firstClick = index;
@@ -91,27 +104,42 @@ function clearChoice() {
 }
 
 
-
-
-
-
-
-
 $(".card").on("click", function(evt) {
-  console.log(evt.target); // just checking if the class is working
-  clickCount++;
-  if (clickCount % 2 === 0) {
-    $("#clicks").text((clickCount/2) + " Attempts");
-  }
   var card  = evt.target.id;
   var index = card.slice(-2);
   index = parseInt(index);
-  $(evt.target).addClass(board[index].className);
-  $(evt.target).addClass("opaque");
-// time that the cards are flipped over and then go back
-  setTimeout(function() {
-    $(evt.target).removeClass(board[index].className);
-    $(evt.target).removeClass("opaque");
-  }, 500);
+  assignChoice(index);
+  if (board[index].matched === false) {
+    clickCount++;
+    if (clickCount % 2 === 0) {
+      $("#clicks").text((clickCount/2) + " Attempts");
+    }
+    $(evt.target).addClass(board[index].className);
+    $(evt.target).addClass("opaque");
+  // time that the cards are flipped over and then go back
+    if (firstClick !== null && secondClick !== null) {
+      if (matchedCards() === true) {
+        pairs += 1;
+        gameWon();
+        clearChoice();
+      } else {
+        setTimeout(function() {
+          var ind1 = firstClick;
+          var ind2 = secondClick;
+          if (ind1 < 10) {
+            ind1 = "0" + firstClick;
+          }
+          if (ind2 < 10) {
+            ind2 = "0" + secondClick;
+          }
+          $("#cell" + ind1).removeClass(board[firstClick].className);
+          $("#cell" + ind1).removeClass("opaque");
+          $("#cell" + ind2).removeClass(board[secondClick].className);
+          $("#cell" + ind2).removeClass("opaque");
+          clearChoice();
+        }, 1200);
+      }
+    }
+  }
 });
 
