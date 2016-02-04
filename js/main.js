@@ -31,21 +31,19 @@ var board = [
   new Card("sookie")
 ];
 
-// shuffling of the cards
-// the board array is written above
 function shuffleBoard() {
   var currentIndex = board.length,
       temporaryValue,
       randomIndex;
 
-  // While there remain elements to shuffle...
+// While there remain elements to shuffle...
   while (0 !== currentIndex) {
 
-    // Pick a remaining element...
+// Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--; //amount of cards
 
-    // And swap it with the current element.
+// And swap it with the current element.
     temporaryValue      = board[currentIndex];
     board[currentIndex] = board[randomIndex];
     board[randomIndex]  = temporaryValue;
@@ -54,15 +52,9 @@ function shuffleBoard() {
 
 shuffleBoard();
 
-// click action for the class of the cell, where the
-// cards are going to show up
 
-
-// if the cards match they stay face up
-// if they don't they go back
-
-
-
+// if the first cliack and the second are the same they
+// they return true.
 function matchedCards() {
   if (board[firstClick].className === board[secondClick].className) {
     board[firstClick].matched  = true;
@@ -70,7 +62,8 @@ function matchedCards() {
     return true;
   }
 }
-
+// if you have six matches you won. if the pairs are strictly
+// equal to each other
 function gameWon() {
   if (pairs === 6) {
     alert("You Won!");
@@ -95,7 +88,8 @@ function assignChoice(index) {
     secondClick = index;
   }
 }
-
+// if there isn't a match then they turn back over because they
+// are both null
 function clearChoice() {
   if (firstClick !== null && secondClick !== null){
     firstClick  = null;
@@ -103,20 +97,23 @@ function clearChoice() {
   }
 }
 
-
+// clicking of the cells and the cards that are called.
+// keeping track of the clicks, attempts, by dividing them by 2
+// because you click on two things to choose.
 $(".card").on("click", function(evt) {
   var card  = evt.target.id;
   var index = card.slice(-2);
+//
   index = parseInt(index);
   assignChoice(index);
   if (board[index].matched === false) {
     clickCount++;
     if (clickCount % 2 === 0) {
-      $("#clicks").text((clickCount/2) + " Attempts");
+      $("#clicks").text((clickCount/2) + " Guesses!");
     }
     $(evt.target).addClass(board[index].className);
     $(evt.target).addClass("opaque");
-  // time that the cards are flipped over and then go back
+
     if (firstClick !== null && secondClick !== null) {
       if (matchedCards() === true) {
         pairs += 1;
@@ -126,6 +123,11 @@ $(".card").on("click", function(evt) {
         setTimeout(function() {
           var ind1 = firstClick;
           var ind2 = secondClick;
+// needed to change because there are two places for the
+// cell index, so, if the card that is called is less than
+// 10 we will have to add the 0 in front of its index. don't
+// need to do this with the ones that have two decimal places
+//that's why we have two different trypes of index
           if (ind1 < 10) {
             ind1 = "0" + firstClick;
           }
@@ -137,7 +139,7 @@ $(".card").on("click", function(evt) {
           $("#cell" + ind2).removeClass(board[secondClick].className);
           $("#cell" + ind2).removeClass("opaque");
           clearChoice();
-        }, 1200);
+        }, 1000);
       }
     }
   }

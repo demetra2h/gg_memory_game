@@ -21,6 +21,7 @@ button {
   font-size: 15px;
   font-family: monaco;
   border-radius: 10px;
+  border: 2px solid #154360;
 }
 
 .board {
@@ -39,10 +40,19 @@ button {
   background-color: #7FB3D5;
   opacity: 0.65;
 }
-
-.clicks {
-  background: #7FB3D5;
+.yourClicks {
+  display: block;
+  text-align: center;
+  height: 40px;
+  width: 100px;
+  font-family: monaco;
+  font-size: 15px;
+  background-color: #7FB3D5;
+  border: 2px solid #154360;
+  border-radius: 10px;
+  color:#154360;
 }
+
 
 .emily {
   background-image: url(../images/emily.jpg);
@@ -62,6 +72,8 @@ button {
 .sookie {
   background-image: url("../images/sookie.jpg");
 }
+
+
 .board td.opaque {
   opacity: 1.0;
 }
