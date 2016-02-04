@@ -42,3 +42,26 @@ button {
 .clicks {
   background: #7FB3D5;
 }
+
+.emily {
+  background-image: url(../images/emily.jpg);
+}
+.jess {
+  background-image: url(../images/jess.jpg);
+}
+.lorelai {
+  background-image: url("../images/lorelai.jpg");
+}
+.richard {
+  background-image: url("../images/richard.jpg");
+}
+.rory {
+  background-image: url("../images/rory.jpg");
+}
+.sookie {
+  background-image: url("../images/sookie.jpg");
+}
+
+
+
+
