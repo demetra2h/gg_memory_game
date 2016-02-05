@@ -32,6 +32,10 @@ button {
   border-spacing: 5px;
 }
 
+.board td.opaque {
+  opacity: 1.0;
+}
+
 .board td {
   position: relative;
   border: 5px solid #154360;
@@ -56,25 +60,32 @@ button {
 
 .emily {
   background-image: url(../images/emily.jpg);
+  background-size: 100% 100%;
+  background-position: center center;
 }
 .jess {
   background-image: url(../images/jess.jpg);
+  background-size: 100% 100%;
+  background-position: center center;
 }
 .lorelai {
   background-image: url("../images/lorelai.jpg");
+  background-size: 100% 100%;
+  background-position: center center;
 }
 .richard {
   background-image: url("../images/richard.jpg");
+  background-size: 100% 100%;
+  background-position: center center;
 }
 .rory {
   background-image: url("../images/rory.jpg");
+  background-size: 100% 100%;
+  background-position: center center;
 }
 .sookie {
   background-image: url("../images/sookie.jpg");
-}
-
-
-.board td.opaque {
-  opacity: 1.0;
+  background-size: 100% 100%;
+  background-position: center center;
 }
 

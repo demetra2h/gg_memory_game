@@ -109,7 +109,7 @@ $(".card").on("click", function(evt) {
   if (board[index].matched === false) {
     clickCount++;
     if (clickCount % 2 === 0) {
-      $("#clicks").text((clickCount/2) + " Guesses!");
+      $("#clicks").text((clickCount/2) + " clicks");
     }
     $(evt.target).addClass(board[index].className);
     $(evt.target).addClass("opaque");
