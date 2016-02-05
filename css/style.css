@@ -1,7 +1,6 @@
 body {
   background: url("../images/gazebo.jpg") no-repeat;
   background-size: cover;
-
 }
 header {
   font-family: monaco;
@@ -22,8 +21,8 @@ button {
   font-family: monaco;
   border-radius: 10px;
   border: 2px solid #154360;
+  display: inline-block;
 }
-
 .board {
   width: 550px;
   height: 550px;
@@ -31,11 +30,9 @@ button {
 
   border-spacing: 5px;
 }
-
 .board td.opaque {
   opacity: 1.0;
 }
-
 .board td {
   position: relative;
   border: 5px solid #154360;
@@ -45,7 +42,8 @@ button {
   opacity: 0.65;
 }
 .yourClicks {
-  display: block;
+  display: inline-block;
+  float: right;
   text-align: center;
   height: 40px;
   width: 80px;
