@@ -30,19 +30,17 @@ var board = [
   new Card("rory"),
   new Card("sookie")
 ];
-
+// beginning, shuffling the cards to get the game ready to
+// be played. taking the board (above) and randomizing it
 function shuffleBoard() {
   var currentIndex = board.length,
       temporaryValue,
       randomIndex;
-
 // While there remain elements to shuffle...
   while (0 !== currentIndex) {
-
 // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--; //amount of cards
-
 // And swap it with the current element.
     temporaryValue      = board[currentIndex];
     board[currentIndex] = board[randomIndex];
@@ -53,11 +51,10 @@ function shuffleBoard() {
 shuffleBoard();
 // reloading the page when the start button is clicked.
 // start again
-
 $("#start").on('click', function(event) {
   location.reload(true);
 });
-// if the first cliack and the second are the same they
+// if the first click and the second are the same
 // they return true.
 function matchedCards() {
   if (board[firstClick].className === board[secondClick].className) {
@@ -66,8 +63,8 @@ function matchedCards() {
     return true;
   }
 }
-// if you have six matches you won. if the pairs are strictly
-// equal to each other
+// if you have six matches you won. if the cards are
+// strictly equal to each other
 function gameWon() {
   if (pairs === 6) {
     alert("You Won!");
@@ -100,14 +97,12 @@ function clearChoice() {
     secondClick = null;
   }
 }
-
 // clicking of the cells and the cards that are called.
 // keeping track of the clicks, attempts, by dividing them by 2
 // because you click on two things to choose.
 $(".card").on("click", function(evt) {
   var card  = evt.target.id;
   var index = card.slice(-2);
-//
   index = parseInt(index);
   assignChoice(index);
   if (board[index].matched === false) {
@@ -131,7 +126,7 @@ $(".card").on("click", function(evt) {
 // cell index, so, if the card that is called is less than
 // 10 we will have to add the 0 in front of its index. don't
 // need to do this with the ones that have two decimal places
-//that's why we have two different trypes of index
+//that's why we have two different types of index
           if (ind1 < 10) {
             ind1 = "0" + firstClick;
           }
@@ -148,4 +143,3 @@ $(".card").on("click", function(evt) {
     }
   }
 });
-
