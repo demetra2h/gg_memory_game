@@ -51,8 +51,12 @@ function shuffleBoard() {
 }
 
 shuffleBoard();
+// reloading the page when the start button is clicked.
+// start again
 
-
+$("#start").on('click', function(event) {
+  location.reload(true);
+});
 // if the first cliack and the second are the same they
 // they return true.
 function matchedCards() {
