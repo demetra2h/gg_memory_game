@@ -10,6 +10,8 @@ There's a click counter, to keep track of how many times the cards have been cal
 
 CSS for the styling, I modeled the page after how a memory game would look if you were to play in the real word. I made the background of the page the town square, because it is an important part of the show.  The cards are a few characters from the show.
 
+<a href+"https://demetra2h.github.io/gg_memory_game">Play game!</a>
+
 <a href="http://imgur.com/ZRlauiN"><img src="http://i.imgur.com/ZRlauiNl.jpg" title="source: imgur.com" /></a>
 
 <a href="https://trello.com/b/gPIJ99OA/project1-matching-game">Hello Trello</a>
