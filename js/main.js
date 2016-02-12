@@ -77,8 +77,7 @@ function gameWon() {
 
 // clear board function
 function clearBoard() {
-  shuffleBoard(cards);
-  console.log(cards);
+  shuffleBoard();
 }
 
 // clicks
@@ -119,25 +118,32 @@ $(".card").on("click", function(evt) {
         gameWon();
         clearChoice();
       } else {
-        setTimeout(function() {
-          var ind1 = firstClick;
-          var ind2 = secondClick;
+        var temp1 = firstClick;
+        var temp2 = secondClick;
+  // assign temp variables for first click and second click
+       clearChoice();
+  // run clear choice function
+  // pass set time out function temp variables
+        setTimeout(function() { //set temp1 temp2
+          var ind1 = temp1;
+          var ind2 = temp2;
+          console.log(temp1, temp2);
 // needed to change because there are two places for the
 // cell index, so, if the card that is called is less than
 // 10 we will have to add the 0 in front of its index. don't
 // need to do this with the ones that have two decimal places
 //that's why we have two different types of index
           if (ind1 < 10) {
-            ind1 = "0" + firstClick;
+            ind1 = "0" + temp1;
           }
           if (ind2 < 10) {
-            ind2 = "0" + secondClick;
+            ind2 = "0" + temp2;
           }
-          $("#cell" + ind1).removeClass(board[firstClick].className);
+          $("#cell" + ind1).removeClass(board[temp1].className);
           $("#cell" + ind1).removeClass("opaque");
-          $("#cell" + ind2).removeClass(board[secondClick].className);
+          $("#cell" + ind2).removeClass(board[temp2].className);
           $("#cell" + ind2).removeClass("opaque");
-          clearChoice();
+       // clearChoice();
         }, 1000);
       }
     }
