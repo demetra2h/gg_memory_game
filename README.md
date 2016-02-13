@@ -1,7 +1,7 @@
 #Gilmore Girls Memory Game
---
+
 <a href="http://imgur.com/ZRlauiN"><img src="http://i.imgur.com/ZRlauiNl.jpg" title="source: imgur.com" /></a>
---
+
 
 ##Introduction
 

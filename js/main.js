@@ -143,7 +143,6 @@ $(".card").on("click", function(evt) {
           $("#cell" + ind1).removeClass("opaque");
           $("#cell" + ind2).removeClass(board[temp2].className);
           $("#cell" + ind2).removeClass("opaque");
-       // clearChoice();
         }, 1000);
       }
     }
